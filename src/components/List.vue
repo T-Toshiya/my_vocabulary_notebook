@@ -2,7 +2,7 @@
   <div class="hello">
     <h2>単語一覧</h2>
     <ul v-bind:key="word" v-for="(word) in registeredWords">
-      <li>単語：{{ word.word }}　意味：{{ word.meaning }}</li>
+      <li>単語：{{ word.word }} 意味：{{ word.meaning }}</li>
     </ul>
   </div>
 </template>
