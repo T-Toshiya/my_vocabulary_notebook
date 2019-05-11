@@ -39,6 +39,15 @@ export default {
     },
     next: function () {
       this.word_key++
+      if (!this.display_words[this.word_key]) { // 表示する単語がなくなった場合はキーをもとに戻し、配列をシャッフル
+        this.word_key = 0
+        for (var i = this.display_words.length - 1; i >= 0; i--) {
+          // 0~iのランダムな数値を取得
+          var rand = Math.floor(Math.random() * (i + 1));
+          // 配列の数値を入れ替える
+          [this.display_words[i], this.display_words[rand]] = [this.display_words[rand], this.display_words[i]]
+        }
+      }
       this.isShow = false
     }
   },
