@@ -1,13 +1,17 @@
 <template>
   <div class="hello">
     <h2>単語一覧</h2>
-    <ul v-bind:key="word" v-for="(word) in registeredWords">
+    <ul v-bind:key="word" v-for="(word, key) in registeredWords">
       <li>単語：{{ word.word }} 意味：{{ word.meaning }}</li>
+      <button v-on:click="deleteWord(key)">×</button>
     </ul>
+    <back></back>
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
+import Back from '@/components/Back'
 import firebase from 'firebase'
 
 export default {
@@ -26,12 +30,18 @@ export default {
       return this.registered_words
     }
   },
+  methods: {
+    deleteWord: function (id) {
+      this.words.child(id).remove()
+    }
+  },
   data () {
     return {
       registered_words: []
     }
   }
 }
+Vue.component('back', Back)
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

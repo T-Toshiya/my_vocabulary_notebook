@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h2>単語暗記</h2>
+    <back></back>
     <p>{{ displayWords[word_key].word }}</p>
     <button v-on:click="showMeaning">意味を表示</button>
     <p v-show="isShow">意味：{{ displayWords[word_key].meaning }}</p>
@@ -9,6 +10,8 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import Back from '@/components/Back'
 import firebase from 'firebase'
 export default {
   name: 'Register',
@@ -60,6 +63,8 @@ export default {
     }
   }
 }
+
+Vue.component('back', Back)
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

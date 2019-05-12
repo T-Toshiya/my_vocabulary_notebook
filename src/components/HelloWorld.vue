@@ -33,7 +33,7 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: '単語学習アプリ'
+      msg: '単語学習'
     }
   }
 }

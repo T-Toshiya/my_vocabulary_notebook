@@ -3,11 +3,14 @@
     <h2>単語登録</h2>
     単語：<input type="text" v-model="word"><br>
     意味：<input type="text" v-model="meaning"><br>
-    <button type="submit" v-on:click="register()">Register</button>
+    <button type="submit" v-on:click="register()">登録</button>
+    <back></back>
   </div>
 </template>
 
 <script>
+import Vue from 'vue'
+import Back from '@/components/Back'
 import firebase from 'firebase'
 
 export default {
@@ -32,6 +35,8 @@ export default {
     }
   }
 }
+
+Vue.component('back', Back)
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
